@@ -5,7 +5,8 @@
     "mysql2": "^3.11.4"
   },
   "scripts": {
-    "start": "node index.js",
+    "start-prod": "NODE_ENV=production node index.js",
+    "start-dev": "node index.js",
     "dev": "nodemon index.js"
   }
 }
