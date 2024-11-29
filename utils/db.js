@@ -1,12 +1,13 @@
+require("dotenv").config();
+
 const mysql = require("mysql2/promise");
 
 // Konfigurasi koneksi database
 const pool = mysql.createPool({
-  host: "34.50.69.254",
-  user: "project",
-  password: "ridho22",
-  database: "project",
-  connectionLimit: 10,
+  host: process.env.CLOUD_SQL_HOST,
+  user: process.env.CLOUD_SQL_USER,
+  password: process.env.CLOUD_SQL_PASSWORD,
+  database: process.env.CLOUD_SQL_DATABASE,
 });
 
 module.exports = pool;
