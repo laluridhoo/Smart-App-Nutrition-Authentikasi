@@ -8,6 +8,7 @@ const pool = mysql.createPool({
   user: process.env.CLOUD_SQL_USER,
   password: process.env.CLOUD_SQL_PASSWORD,
   database: process.env.CLOUD_SQL_DATABASE,
+  connectionLimit: 10,
 });
 
 module.exports = pool;
