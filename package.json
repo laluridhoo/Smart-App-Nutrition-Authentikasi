@@ -11,7 +11,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "start:prod": "NODE_ENV=production node index.js"
+    "start:prod": "NODE_ENV=production node index.js",
+    "docker:build": "docker build -t backend-api .",
+    "docker:run": "docker run -p 8080:8080 backend-api"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
