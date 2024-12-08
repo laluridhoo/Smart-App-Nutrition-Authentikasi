@@ -16,6 +16,11 @@ const authRoutes = [
     path: "/logout",
     handler: authController.logout,
   },
+  {
+    method: "PUT",
+    path: "/edit-user",
+    handler: authController.editUser,
+  },
 ];
 
 module.exports = authRoutes;
