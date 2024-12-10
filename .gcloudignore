@@ -1,9 +1,2 @@
 .git
 .gitignore
-.env
-node_modules/
-*.md
-.vscode/
-.idea/
-*.log
-cloudbuild.yaml
