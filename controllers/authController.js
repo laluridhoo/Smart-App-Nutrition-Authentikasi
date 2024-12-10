@@ -1,4 +1,3 @@
-
 const bcrypt = require("bcrypt");
 const pool = require("../utils/db");
 const { createUser, getUserByEmail } = require("../models/userModel");
@@ -123,5 +122,4 @@ module.exports = {
   logout,
   updateUsernameHandler,
   updatePasswordHandler,
-
 };
