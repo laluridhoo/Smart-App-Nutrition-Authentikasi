@@ -1,3 +1,4 @@
+
 const bcrypt = require("bcrypt");
 const pool = require("../utils/db");
 const { createUser, getUserByEmail } = require("../models/userModel");
@@ -12,10 +13,8 @@ const register = async (request, h) => {
     if (existingUser) {
       return h.response({ message: "Email sudah terdaftar" }).code(400);
     }
-
     const hashedPassword = await hashPassword(password);
     await createUser(username, email, hashedPassword);
-
     return h.response({ message: "Registrasi berhasil" }).code(201);
   } catch (error) {
     console.error(error);
@@ -124,4 +123,5 @@ module.exports = {
   logout,
   updateUsernameHandler,
   updatePasswordHandler,
+
 };

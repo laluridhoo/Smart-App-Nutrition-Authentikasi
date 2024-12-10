@@ -46,6 +46,11 @@ const authRoutes = [
       auth: "session", // Hanya untuk user yang login
     },
   },
+  {
+    method: "PUT",
+    path: "/edit-user",
+    handler: authController.editUser,
+  },
 ];
 
 module.exports = authRoutes;
