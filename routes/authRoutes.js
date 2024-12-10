@@ -27,23 +27,10 @@ const authRoutes = [
   },
   {
     method: "PUT",
-    path: "/users/username",
-    handler: authController.updateUsernameHandler, // Ambil dari authController
+    path: "/users/profile",
+    handler: authController.editProfile,
     options: {
-      auth: "session", // Hanya untuk user yang login
-    },
-  },
-  {
-    method: "PUT",
-    path: "/users/update",
-    handler: authController.updateUsernameHandler,
-  },
-  {
-    method: "PUT",
-    path: "/users/password",
-    handler: authController.updatePasswordHandler, // Ambil dari authController
-    options: {
-      auth: "session", // Hanya untuk user yang login
+      auth: "session",
     },
   },
 ];

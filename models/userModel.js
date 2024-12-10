@@ -44,10 +44,14 @@ const getUserById = async (id) => {
   }
 };
 
-const updateUser = async (id, username, password) => {
-  //+
-  const query = "UPDATE users SET username = ?, password = ? WHERE id = ?"; //+
-  await db.query(query, [username, password, id]); //+
+const updateUser = async (id, username, hashedPassword) => {
+  try {
+    const query = "UPDATE users SET username = ?, password = ? WHERE id = ?";
+    await db.query(query, [username, hashedPassword, id]);
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
 };
 
 module.exports = {
