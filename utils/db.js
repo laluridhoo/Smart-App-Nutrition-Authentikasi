@@ -1,12 +1,25 @@
 require("dotenv").config();
 
-const mysql = require("mysql2/promise");
+const { Pool } = require("pg");
 
-const pool = mysql.createPool({
-  host: "34.50.69.254",
-  user: "project", // Ganti dengan username database Anda
-  password: "ridho22", // Ganti dengan password database Anda
-  database: "project", // Ganti dengan nama database Anda
+const pool = new Pool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
+  ssl: {
+    rejectUnauthorized: false, // Diperlukan untuk koneksi Cloud SQL
+  },
+});
+
+// Tes koneksi
+pool.connect((err, client, release) => {
+  if (err) {
+    return console.error("Error acquiring client", err.stack);
+  }
+  console.log("Database connection successful");
+  release();
 });
 
 module.exports = pool;
