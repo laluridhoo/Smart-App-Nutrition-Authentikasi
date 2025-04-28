@@ -13,13 +13,4 @@ const pool = new Pool({
   },
 });
 
-// Tes koneksi
-pool.connect((err, client, release) => {
-  if (err) {
-    return console.error("Error acquiring client", err.stack);
-  }
-  console.log("Database connection successful");
-  release();
-});
-
 module.exports = pool;
